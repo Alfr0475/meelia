@@ -1,0 +1,7 @@
+<?php
+
+/**
+ * @codeCoverageIgnore
+ */
+$config = 'hoge';
+

@@ -1,0 +1,139 @@
+<project name="Meelia" default="build-ci">
+  <property name="basedir" value="." />
+
+  <target name="clean" description="Clean up and create artifact directories">
+    <delete dir="${basedir}/build" />
+
+    <mkdir dir="${basedir}/build" />
+    <mkdir dir="${basedir}/build/api" />
+    <mkdir dir="${basedir}/build/code-browser" />
+    <mkdir dir="${basedir}/build/coverage" />
+    <mkdir dir="${basedir}/build/logs" />
+    <mkdir dir="${basedir}/build/phpdepend" />
+  </target>
+
+  <target name="distclean" description="Clean up all temporarlly files">
+    <delete dir="${basedir}/build" />
+  </target>
+
+  <target name="test" depends="clean" description="Run code test and code coverage">
+    <exec command="phpunit -c ${basedir}/tests/phpunit.xml --coverage-clover ${basedir}/build/coverage/clover.xml --log-junit ${basedir}/build/logs/unit.xml --coverage-html ${basedir}/build/coverage" />
+  </target>
+
+  <target name="test-ci" depends="clean" description="[CUI] Run code test and code coverage">
+    <phpunit haltonfailure="true" printsummary="true" bootstrap="${basedir}/tests/bootstrap.php">
+      <batchtest>
+        <fileset dir="${basedir}/tests">
+          <include name="**/*_test.php" />
+        </fileset>
+      </batchtest>
+    </phpunit>
+  </target>
+
+  <target name="phpdoc" description="Generate PHP Documentor">
+    <mkdir dir="${basedir}/build/api" />
+    <phpdoc title="API Documentation" destdir="${basedir}/build/api" output="HTML:Smarty:PHP">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+    </phpdoc>
+  </target>
+
+  <target name="phpcs" description="Check PHP Code Sniffer">
+    <phpcodesniffer standard="PSR2">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="default" usefile="false" />
+      <formatter type="checkstyle" usefile="true" outfile="${basedir}/build/logs/phpcs.xml" />
+    </phpcodesniffer>
+  </target>
+
+  <target name="phpcs-ci" description="[CUI] Check PHP Code Sniffer">
+    <phpcodesniffer standard="PSR2">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="default" usefile="false" />
+    </phpcodesniffer>
+  </target>
+
+  <target name="phpcpd" description="Check PHP Code Duplication">
+    <phpcpd minTokens="10">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="pmd" outfile="${basedir}/build/logs/phpcpd.xml" />
+    </phpcpd>
+  </target>
+
+  <target name="phpcpd-ci" description="[CUI] Check PHP Code Duplication">
+    <phpcpd minTokens="10">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="default" usefile="false" outfile="${basedir}/build/logs/phpcpd.xml" />
+    </phpcpd>
+  </target>
+
+  <target name="phpmd" description="Check PHP Mess Detector">
+    <phpmd rulesets="codesize,unusedcode,design,naming">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="xml" outfile="${basedir}/build/logs/phpmd.xml" />
+    </phpmd>
+  </target>
+
+  <target name="phpmd-ci" description="[CUI] Check PHP Mess Detector">
+    <phpmd rulesets="codesize,unusedcode,design,naming">
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <formatter type="text" usefile="false" />
+    </phpmd>
+  </target>
+
+  <target name="phpdepend" description="Check PHP Metrics">
+    <phpdepend>
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+      <logger type="jdepend-xml" outfile="${basedir}/build/logs/phpdepend.xml" />
+      <logger type="jdepend-chart" outfile="${basedir}/build/phpdepend/dependencies.svg" />
+      <logger type="overview-pyramid" outfile="${basedir}/build/phpdepend/overview-pyramid.svg" />
+    </phpdepend>
+  </target>
+
+  <target name="phplint" description="Check PHP Code Syntax">
+    <phplint>
+      <fileset dir="${basedir}">
+        <include name="core/**/*.php" />
+        <include name="database/**/*.php" />
+      </fileset>
+    </phplint>
+  </target>
+
+  <target name="phploc" description="Measure Project Size">
+    <exec command="phploc --log-csv ${basedir}/build/logs/phploc.csv ${basedir}" />
+  </target>
+
+  <target name="phpcb" description="Generate PHP Code Browser">
+    <exec command="phpcb --log ${basedir}/build/logs --source ${basedir} --output ${basedir}/build/code-browser" />
+  </target>
+
+  <target name="build" depends="clean,phplint,phpcs,phpcpd,phpmd,test,phploc,phpdepend" description="Execute build process">
+  </target>
+
+  <target name="build-ci" depends="clean,phplint,phpcs-ci,phpcpd-ci,phpmd-ci,test-ci" description="[CUI] Execute build process">
+  </target>
+</project>
+

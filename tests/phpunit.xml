@@ -1,0 +1,33 @@
+<phpunit bootstrap="bootstrap.php"
+         stopOnFailure="false"
+         colors="true"
+         strict="true"
+         verbose="true">
+  <testsuite name="All">
+    <directory suffix=".php">./case/core</directory>
+    <directory suffix=".php">./case/database</directory>
+    <directory suffix=".php">./case/logic</directory>
+  </testsuite>
+  <testsuite name="Core">
+    <directory suffix=".php">./case/core</directory>
+  </testsuite>
+  <testsuite name="Database">
+    <directory suffix=".php">./case/database</directory>
+  </testsuite>
+  <testsuite name="Logic">
+    <directory suffix=".php">./case/logic</directory>
+  </testsuite>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">./../core/</directory>
+      <directory suffix=".php">./../database/</directory>
+      <directory suffix=".php">./../logic/</directory>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-html" target="./../build/coverage" charset="UTF-8" yui="true" highlight="true" />
+    <log type="coverage-clover" target="./../build/coverage/clover.xml" />
+    <log type="junit" target="./../build/logs/unit.xml" />
+  </logging>
+</phpunit>
+
