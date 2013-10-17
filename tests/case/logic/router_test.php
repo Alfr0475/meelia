@@ -124,45 +124,37 @@ class RouterTest extends PHPUnit_Framework_TestCase
         $ref_router_var_default_controller = $ref_router_class->getProperty('default_controller');
         $ref_router_var_directory          = $ref_router_class->getProperty('directory');
         $ref_router_var_class              = $ref_router_class->getProperty('class');
-        $ref_router_var_method             = $ref_router_class->getProperty('method');
 
         $ref_router_var_default_controller->setAccessible(true);
         $ref_router_var_directory->setAccessible(true);
         $ref_router_var_class->setAccessible(true);
-        $ref_router_var_method->setAccessible(true);
 
 
         $ref_router_var_default_controller->setValue($router, 'hoge/moge/gere');
         $ref_router_method->invoke($router);
-        $this->assertEquals('hoge', $router->getDirectory());
-        $this->assertEquals('moge', $router->getClass());
-        $this->assertEquals('gere', $router->getMethod());
+        $this->assertEquals('hoge/moge', $router->getDirectory());
+        $this->assertEquals('gere', $router->getClass());
         $ref_router_var_default_controller->setValue($router, '');
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, '');
 
 
         $ref_router_var_default_controller->setValue($router, 'hoge/moge');
         $ref_router_method->invoke($router);
-        $this->assertEquals('', $router->getDirectory());
-        $this->assertEquals('hoge', $router->getClass());
-        $this->assertEquals('moge', $router->getMethod());
+        $this->assertEquals('hoge', $router->getDirectory());
+        $this->assertEquals('moge', $router->getClass());
         $ref_router_var_default_controller->setValue($router, '');
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, '');
 
 
         $ref_router_var_default_controller->setValue($router, 'hoge');
         $ref_router_method->invoke($router);
         $this->assertEquals('', $router->getDirectory());
         $this->assertEquals('hoge', $router->getClass());
-        $this->assertEquals('index', $router->getMethod());
         $ref_router_var_default_controller->setValue($router, '');
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, '');
     }
 }
 

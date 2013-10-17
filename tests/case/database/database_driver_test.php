@@ -15,6 +15,12 @@ class DatabaseDriverTest extends PHPUnit_Framework_TestCase
             'collate'  => 'utf8_general_ci'
         );
 
+        $con = mysql_connect(TEST_DB_HOSTNAME, TEST_DB_USERNAME, TEST_DB_PASSWORD, true);
+
+        if(!mysql_select_db(TEST_DB_DATABASE, $con)){
+            $this->markTestSkipped('not found '.TEST_DB_DATABASE);
+        }
+
         $driver = new DatabaseDriverMysql($params);
         $ref_method = new ReflectionMethod($driver, 'loadResultDriver');
         $ref_method->setAccessible(true);

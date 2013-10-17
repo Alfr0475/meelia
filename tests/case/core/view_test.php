@@ -6,13 +6,13 @@ require_once ME_CORE_VIEW_DIR . '/view_html.class.php';
 class ViewTest extends PHPUnit_Framework_TestCase
 {
     function test_getViewFile(){
-        $_SERVER['REQUEST_METHOD'] = 'execute';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
         $controller = new ViewTestController('test');
         $controller->initialize('test', 'hoge');
 
         $view = new ViewTestView($controller);
 
-        $this->assertEquals(ME_APP_VIEW_DIR . '/test/hoge.php', $view->testMethod());
+        $this->assertEquals(ME_APP_VIEW_DIR . '/test/get.php', $view->testMethod());
         $this->assertEquals(ME_APP_VIEW_DIR . '/test/hoge.php', $view->testMethod('hoge'));
         $this->assertEquals(ME_APP_VIEW_DIR . '/test/moge.php', $view->testMethod('moge'));
         $this->assertEquals(ME_APP_VIEW_DIR . '/test/hoge/moge.php', $view->testMethod('hoge/moge'));
