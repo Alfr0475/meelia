@@ -20,10 +20,14 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     }
 
     function test_existAction(){
-        $this->assertTrue($this->controller->existAction('add'));
-        $this->assertFalse($this->controller->existAction('add_test'));
-        $this->assertFalse($this->controller->existAction('view'));
-        $this->assertFalse($this->controller->existAction('hoge'));
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $this->assertTrue($this->controller->existAction());
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $this->assertTrue($this->controller->existAction());
+        $_SERVER['REQUEST_METHOD'] = 'HOGE';
+        $this->assertFalse($this->controller->existAction());
+        $_SERVER['REQUEST_METHOD'] = 'PUT';
+        $this->assertFalse($this->controller->existAction());
     }
 
     function test_reservedAction(){
@@ -57,7 +61,11 @@ class ControllerTest extends PHPUnit_Framework_TestCase
 
 class ControllerTestController extends Controller
 {
-    public function executeAdd()
+    public function executeGet()
+    {
+    }
+
+    public function executePost()
     {
     }
 }

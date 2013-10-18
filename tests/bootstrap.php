@@ -11,4 +11,3 @@ define('TEST_DB_PASSWORD', '0okm9ijn!!');
 define('TEST_DB_DATABASE', 'meelia_test');
 
 require_once ME_ROOT_DIR . '/meelia.php';
-

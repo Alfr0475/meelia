@@ -43,6 +43,8 @@ define('ME_APP_ERROR_DIR',      ME_APP_DIR     . '/error');
 define('ME_APP_TMP_DIR',        ME_APP_DIR     . '/tmp');
 define('ME_APP_LOG_DIR',        ME_APP_TMP_DIR . '/log');
 
+require_once ME_CORE_VENDOR_DIR . '/autoload.php';
+
 require_once ME_CORE_DIR . '/common.php';
 require_once ME_CORE_DIR . '/dispatcher.class.php';
 require_once ME_CORE_DIR . '/controller.class.php';

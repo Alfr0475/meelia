@@ -226,12 +226,10 @@ abstract class Controller
      * 存在するかのチェックメソッド。
      * </pre>
      *
-     * @param string $action アクション名
-     *
      * @return bool
      * @access public
      */
-    public function existAction($action)
+    public function existAction()
     {
         $request = Loader::loadLogic('request');
         $action_function = strtolower(
@@ -360,7 +358,7 @@ abstract class Controller
         }
 
         //コントローラーに指定したアクションのメソッドが使えるかチェック
-        if (!$this->existAction($this->action)) {
+        if (!$this->existAction()) {
             show404($this->name . '/' . $this->action);
         }
 

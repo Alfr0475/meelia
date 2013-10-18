@@ -1,0 +1,11 @@
+{
+    "require": {
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/dbunit": "1.2.*",
+        "phpmd/phpmd": "1.5.*",
+        "sebastian/phpcpd": "1.4.*",
+        "pdepend/pdepend": "1.1.*",
+        "mikey179/vfsStream": "v1.2.0",
+        "mustangostang/spyc": "0.5.*"
+    }
+}

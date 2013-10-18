@@ -20,6 +20,11 @@ class DatabaseDriverMysqlTest extends PHPUnit_Extensions_Database_TestCase
             'collate'  => 'utf8_general_ci',
         );
 
+        $con = mysql_connect(TEST_DB_HOSTNAME, TEST_DB_USERNAME, TEST_DB_PASSWORD, true);
+        if(!mysql_select_db(TEST_DB_DATABASE, $con)){
+            $this->markTestSkipped('not found '.TEST_DB_DATABASE);
+        }
+
         $this->driver = new TestDatabaseDriverMysql($params);
     }
 
