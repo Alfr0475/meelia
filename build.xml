@@ -57,7 +57,7 @@
         <include name="core/**/*.php" />
         <include name="database/**/*.php" />
       </fileset>
-      <formatter type="default" usefile="false" />
+      <formatter type="full" usefile="false" />
     </phpcodesniffer>
   </target>
 
