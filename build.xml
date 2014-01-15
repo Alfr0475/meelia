@@ -133,7 +133,7 @@
   <target name="build" depends="clean,phplint,phpcs,phpcpd,phpmd,test,phploc,phpdepend" description="Execute build process">
   </target>
 
-  <target name="build-ci" depends="clean,phplint,phpcs-ci,phpcpd-ci,phpmd-ci,test-ci" description="[CUI] Execute build process">
+  <target name="build-ci" depends="clean,phplint,phpcs-ci,phpmd-ci,test-ci" description="[CUI] Execute build process">
   </target>
 </project>
 
