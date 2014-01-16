@@ -5,6 +5,10 @@ class DatabaseDriverTest extends PHPUnit_Framework_TestCase
     private $driver;
 
     function test_loadResultDriver(){
+        if (version_compare(PHP_VERSION, '5.4', '>=')) {
+            $this->markTestSkipped('This test operates below by php version 5.3.');
+        }
+
         $params = array(
             'db_driver' => 'mysql',
             'hostname' => TEST_DB_HOSTNAME,

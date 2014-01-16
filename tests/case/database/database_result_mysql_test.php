@@ -8,6 +8,10 @@ class DatabaseResultMysqlTest extends PHPUnit_Framework_TestCase
     private $con = false;
 
     function setUp(){
+        if (version_compare(PHP_VERSION, '5.4', '>=')) {
+            $this->markTestSkipped('This test operates below by php version 5.3.');
+        }
+
         $this->con = mysql_connect(TEST_DB_HOSTNAME, TEST_DB_USERNAME, TEST_DB_PASSWORD, true);
 
         if(!mysql_select_db(TEST_DB_DATABASE, $this->con)){
