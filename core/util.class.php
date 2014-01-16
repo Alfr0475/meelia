@@ -88,7 +88,12 @@ class Util
      */
     public static function toSnakeCase($string)
     {
-        return preg_replace('/[A-Z]/e', "'_'.strtolower('$0')", lcfirst($string));
+        return preg_replace_callback('/[A-Z]/',
+            function($matches) {
+                return '_'.strtolower($matches[0]);
+            },
+            lcfirst($string)
+        );
     }
 
     /**
