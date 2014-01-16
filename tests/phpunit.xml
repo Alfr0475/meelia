@@ -3,6 +3,12 @@
          colors="true"
          strict="true"
          verbose="true">
+  <php>
+    <const name="TEST_DB_HOSTNAME" value="localhost" />
+    <const name="TEST_DB_USERNAME" value="travis" />
+    <const name="TEST_DB_PASSWORD" value="" />
+    <const name="TEST_DB_DATABASE" value="meelia_test" />
+  </php>
   <testsuite name="All">
     <directory suffix=".php">./case/core</directory>
     <directory suffix=".php">./case/database</directory>
