@@ -27,6 +27,7 @@
           <include name="**/*_test.php" />
         </fileset>
       </batchtest>
+      <formatter type="plain" usefile="false" />
     </phpunit>
   </target>
 
