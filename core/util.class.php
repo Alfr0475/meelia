@@ -20,6 +20,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/util.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * Util
  *
@@ -88,8 +90,9 @@ class Util
      */
     public static function toSnakeCase($string)
     {
-        return preg_replace_callback('/[A-Z]/',
-            function($matches) {
+        return preg_replace_callback(
+            '/[A-Z]/',
+            function ($matches) {
                 return '_'.strtolower($matches[0]);
             },
             lcfirst($string)
@@ -133,4 +136,3 @@ class Util
         exit();
     }
 }
-

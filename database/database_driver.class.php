@@ -19,6 +19,8 @@
  * @link      $HeadURL$
  */
 
+namespace meelia\database;
+
 /**
  * DatabaseDriver
  *
@@ -403,4 +405,3 @@ abstract class DatabaseDriver
         return new $result_class();
     }
 }
-

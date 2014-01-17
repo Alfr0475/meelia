@@ -18,6 +18,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/loader.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * Loader
  *
@@ -256,7 +258,10 @@ class Loader
 
 
         require_once ME_CORE_DATABASE_DIR . '/database_driver.class.php';
-        require_once ME_CORE_DATABASE_DIR . '/drivers/'.$db_config['db_driver'].'/database_driver_'.$db_config['db_driver'].'.class.php';
+        require_once ME_CORE_DATABASE_DIR
+            . '/drivers/'
+            . $db_config['db_driver']
+            . '/database_driver_'.$db_config['db_driver'].'.class.php';
 
         $driver_class = sprintf('DatabaseDriver%s', Util::camelizeUcc($db_config['db_driver']));
 
@@ -267,4 +272,3 @@ class Loader
         return $resource;
     }
 }
-

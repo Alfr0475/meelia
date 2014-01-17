@@ -19,6 +19,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/view.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * View
  *
@@ -143,4 +145,3 @@ abstract class View
      */
     abstract public function fetch($action_path = null);
 }
-

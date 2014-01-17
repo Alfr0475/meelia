@@ -18,6 +18,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/error.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * CoreError
  *
@@ -51,7 +53,8 @@ class CoreError
      * @return string エラーページ
      * @access public
      */
-    public function showError($heading, $message, $status_code = 500){
+    public function showError($heading, $message, $status_code = 500)
+    {
         // HTTPレスポンスコードとContent-Typeの設定
         $response =& Loader::loadLogic('response');
         $response->setStatusCode($status_code);
@@ -102,7 +105,8 @@ class CoreError
      * @return None
      * @access public
      */
-    public function show404($page = ''){
+    public function show404($page = '')
+    {
         $heading = "404 Page Not Found";
         $message = "The page you requested was not found.";
 
@@ -111,4 +115,3 @@ class CoreError
         return $this->showError($heading, $message, 404);
     }
 }
-

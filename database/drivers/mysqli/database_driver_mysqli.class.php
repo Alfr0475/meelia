@@ -18,6 +18,8 @@
  * @link      $HeadURL$
  */
 
+namespace meelia\database\drivers\mysqli;
+
 /**
  * DatabaseDriverMysqli
  *
@@ -200,4 +202,3 @@ class DatabaseDriverMysqli extends DatabaseDriver
         return $this->instance->ping();
     }
 }
-

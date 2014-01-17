@@ -18,6 +18,8 @@
  * @link       $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/common.php $
  */
 
+namespace meelia\core;
+
 /**
  * logMessage
  *
@@ -97,4 +99,3 @@ if (!function_exists('show404')) {
         exit();
     }
 }
-

@@ -18,6 +18,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/database/drivers/mysql/database_result_mysql.class.php $
  */
 
+namespace meelia\database\drivers\mysql;
+
 /**
  * DatabaseResultMysql
  *
@@ -192,4 +194,3 @@ class DatabaseResultMysql extends DatabaseResult
         return mysql_fetch_object($this->res_id);
     }
 }
-

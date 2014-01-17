@@ -18,6 +18,8 @@
  * @link      $HeadURL$
  */
 
+namespace meelia\database\drivers\mysql;
+
 /**
  * DatabaseDriverMysql
  *
@@ -223,4 +225,3 @@ class DatabaseDriverMysql extends DatabaseDriver
         return mysql_ping($this->con_id);
     }
 }
-

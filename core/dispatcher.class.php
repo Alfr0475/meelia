@@ -19,6 +19,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/dispatcher.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * Dispatcher
  *
@@ -111,4 +113,3 @@ class Dispatcher
         logMessage('log', 'debug', '[end] Dispatcher::invoke');
     }
 }
-

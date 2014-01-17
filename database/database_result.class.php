@@ -19,6 +19,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/database/database_result.class.php $
  */
 
+namespace meelia\database;
+
 /**
  * DatabaseResult
  *
@@ -511,4 +513,3 @@ abstract class DatabaseResult
      */
     abstract protected function fetchObject();
 }
-

@@ -18,6 +18,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/profiler.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * CoreProfiler
  *
@@ -74,12 +76,24 @@ class CoreProfiler
 
             if ($section == 'time') {
                 $benchmark = Loader::loadLogic('benchmark');
-                $output_titles .= sprintf('<li><a href="JavaScript:;" onClick="meeliaProfilerShow(\'%s\')">%sms</a></li>', $section, $benchmark->elapsedTime('total_execution_time_start', 'total_execution_time_end', 3)*1000) . "\n";
+                $output_titles .= sprintf(
+                    '<li><a href="JavaScript:;" onClick="meeliaProfilerShow(\'%s\')">%sms</a></li>',
+                    $section,
+                    $benchmark->elapsedTime(
+                        'total_execution_time_start',
+                        'total_execution_time_end',
+                        3
+                    ) * 1000
+                ) . "\n";
                 $output_sections .= $this->{$function}() . "\n";
             } elseif ($section == 'memory') {
                 $output_titles .= sprintf('<li>%s KB</li>', round(memory_get_usage()/1024, 2)) . "\n";
             } else {
-                $output_titles .= sprintf('<li><a href="JavaScript:;" onClick="meeliaProfilerShow(\'%s\')">%s</a></li>', $section, $section) . "\n";
+                $output_titles .= sprintf(
+                    '<li><a href="JavaScript:;" onClick="meeliaProfilerShow(\'%s\')">%s</a></li>',
+                    $section,
+                    $section
+                ) . "\n";
                 $output_sections .= $this->{$function}() . "\n";
             }
         }
@@ -131,7 +145,7 @@ class CoreProfiler
 
         $config_output = '';
         $config_output .= '<div id="meelia_profiler_detail_config_config" style="display:none">';
-        foreach ($config_data_array as $type => $config_data){
+        foreach ($config_data_array as $type => $config_data) {
             $config_output .= sprintf("<h3>%s.inc.php :</h3>", $type);
             $config_output .= '  <pre>';
             foreach ($config_data as $key => $value) {
@@ -150,7 +164,12 @@ class CoreProfiler
         $request_output .= '<div id="meelia_profiler_detail_config_request" style="display:none">';
         $request_output .= '  <h3>ROUTER</h3>';
         $request_output .= '  <pre>';
-        $request_output .= sprintf("Directory : %s\nClass : %s\nArgs : %s\n", $router->getDirectory(), $router->getClass(), var_export($router->getArgs(), true));
+        $request_output .= sprintf(
+            "Directory : %s\nClass : %s\nArgs : %s\n",
+            $router->getDirectory(),
+            $router->getClass(),
+            var_export($router->getArgs(), true)
+        );
         $request_output .= '  </pre>';
         $request_output .= '  <h3>GET</h3>';
         $request_output .= '  <pre>';
@@ -317,7 +336,11 @@ class CoreProfiler
             $database_output .= '    <th>Query</th>';
             $database_output .= '  </tr>';
             foreach ($querys as $sql_data) {
-                $database_output .= sprintf('<tr><td>%s</td><td>%s</td></tr>', number_format($sql_data['time'], 4), $sql_data['sql']);
+                $database_output .= sprintf(
+                    '<tr><td>%s</td><td>%s</td></tr>',
+                    number_format($sql_data['time'], 4),
+                    $sql_data['sql']
+                );
             }
             $database_output .= '</table>';
         }
@@ -447,4 +470,3 @@ class CoreProfiler
         ));
     }
 }
-

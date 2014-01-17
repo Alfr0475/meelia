@@ -18,6 +18,8 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/core/config.class.php $
  */
 
+namespace meelia\core;
+
 /**
  * Config
  *
@@ -149,4 +151,3 @@ class Config
         self::$config_array[$key] = $value;
     }
 }
-
