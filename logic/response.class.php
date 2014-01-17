@@ -18,6 +18,9 @@
  * @link      $HeadURL: svn+ssh://127.167.180.69/var/svn/develop/PSS/meelia/trunk/logic/response.class.php $
  */
 
+use meelia\core\Config;
+use meelia\core\Loader;
+
 /**
  * LogicResponse
  *

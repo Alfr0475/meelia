@@ -1,5 +1,8 @@
 <?php
 
+use meelia\core\Loader;
+use meelia\core\Config;
+
 class ResponseTest extends PHPUnit_Framework_TestCase
 {
     public function test_setHeader()

@@ -1,5 +1,7 @@
 <?php
 
+use meelia\core\Loader;
+
 class RequestTest extends PHPUnit_Framework_TestCase
 {
     function test_get(){

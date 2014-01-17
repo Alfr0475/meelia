@@ -53,7 +53,7 @@ class LogicUri
      */
     public function fetchUriString()
     {
-        logMessage('log', 'debug', '[start] Uri::fetchUriString');
+        meelia\core\logMessage('log', 'debug', '[start] Uri::fetchUriString');
 
         //URI情報を取得（QUERY_STRING以外）
         $this->uri_string = $this->detectUri();
@@ -64,7 +64,7 @@ class LogicUri
         //URIを分割
         $this->explodeSegments();
 
-        logMessage('log', 'debug', '[end] Uri::fetchUriString');
+        meelia\core\logMessage('log', 'debug', '[end] Uri::fetchUriString');
     }
 
     /**

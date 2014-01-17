@@ -1,5 +1,8 @@
 <?php
 
+use meelia\core\Config;
+use meelia\core\CoreLog;
+
 require_once ME_CORE_DIR . '/log.class.php';
 require_once ME_CORE_TEST_DIR . '/vendor/vfsStream/vfsStream.php';
 

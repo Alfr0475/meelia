@@ -1,5 +1,7 @@
 <?php
 
+use meelia\core\Loader;
+
 require_once ME_CORE_DIR . '/loader.class.php';
 require_once ME_CORE_LOGIC_DIR . '/router.class.php';
 

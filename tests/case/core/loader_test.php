@@ -1,5 +1,8 @@
 <?php
 
+use meelia\core\Loader;
+use meelia\core\Controller;
+
 require_once ME_CORE_DIR . '/loader.class.php';
 
 class LoaderTest extends PHPUnit_Framework_TestCase

@@ -1,5 +1,7 @@
 <?php
 
+use meelia\core\Controller;
+
 require_once ME_CORE_DIR . '/view.class.php';
 require_once ME_CORE_VIEW_DIR . '/view_html.class.php';
 

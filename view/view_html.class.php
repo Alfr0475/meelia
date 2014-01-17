@@ -18,6 +18,9 @@
  * @link      $HeadURL$
  */
 
+use meelia\core\View;
+use meelia\core\Controller;
+
 /**
  * ViewHtml
  *

@@ -1,5 +1,7 @@
 <?php
 
+use meelia\core\Config;
+
 require_once ME_CORE_DIR . '/config.class.php';
 
 class ConfigTest extends PHPUnit_Framework_TestCase

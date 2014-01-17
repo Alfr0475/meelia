@@ -1,5 +1,7 @@
 <?php
 
+use meelia\core\Util;
+
 require_once ME_CORE_DIR . '/util.class.php';
 
 class UtilTest extends PHPUnit_Framework_TestCase

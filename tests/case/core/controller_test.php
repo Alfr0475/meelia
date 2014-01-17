@@ -1,5 +1,9 @@
 <?php
 
+use meelia\core\Controller;
+use meelia\core\View;
+use meelia\core\Config;
+
 require_once ME_CORE_DIR . '/controller.class.php';
 require_once ME_CORE_DIR . '/view.class.php';
 
@@ -15,8 +19,8 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     }
 
     function test_definendum_method(){
-        $this->assertTrue(method_exists('Controller', 'beforeProcess'));
-        $this->assertTrue(method_exists('Controller', 'afterProcess'));
+        $this->assertTrue(method_exists('meelia\core\Controller', 'beforeProcess'));
+        $this->assertTrue(method_exists('meelia\core\Controller', 'afterProcess'));
     }
 
     function test_existAction(){
