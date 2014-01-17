@@ -33,12 +33,10 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
         $ref_router_var_directory = $ref_router_class->getProperty('directory');
         $ref_router_var_class     = $ref_router_class->getProperty('class');
-        $ref_router_var_method    = $ref_router_class->getProperty('method');
         $ref_router_var_args      = $ref_router_class->getProperty('args');
 
         $ref_router_var_directory->setAccessible(true);
         $ref_router_var_class->setAccessible(true);
-        $ref_router_var_method->setAccessible(true);
         $ref_router_var_args->setAccessible(true);
 
 
@@ -48,12 +46,10 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('', $router->getDirectory());
         $this->assertEquals('router_test1', $router->getClass());
-        $this->assertEquals('test', $router->getMethod());
-        $this->assertEquals(array('hoge', 'moge'), $router->getArgs());
+        $this->assertEquals(array('test', 'hoge', 'moge'), $router->getArgs());
 
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, 'index');
         $ref_router_var_args->setValue($router, array());
         $ref_uri_var_uri_string->setValue($uri, '');
         $ref_uri_var_segments->setValue($uri, array());
@@ -65,12 +61,10 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('routertest1', $router->getDirectory());
         $this->assertEquals('router_test2', $router->getClass());
-        $this->assertEquals('test', $router->getMethod());
-        $this->assertEquals(array('hoge', 'moge'), $router->getArgs());
+        $this->assertEquals(array('test', 'hoge', 'moge'), $router->getArgs());
 
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, 'index');
         $ref_router_var_args->setValue($router, array());
         $ref_uri_var_uri_string->setValue($uri, '');
         $ref_uri_var_segments->setValue($uri, array());
@@ -82,12 +76,10 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('routertest1/routertest2', $router->getDirectory());
         $this->assertEquals('router_test3', $router->getClass());
-        $this->assertEquals('test', $router->getMethod());
-        $this->assertEquals(array('hoge', 'moge'), $router->getArgs());
+        $this->assertEquals(array('test', 'hoge', 'moge'), $router->getArgs());
 
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, 'index');
         $ref_router_var_args->setValue($router, array());
         $ref_uri_var_uri_string->setValue($uri, '');
         $ref_uri_var_segments->setValue($uri, array());
@@ -99,12 +91,10 @@ class RouterTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('routertest1', $router->getDirectory());
         $this->assertEquals('router_test2', $router->getClass());
-        $this->assertEquals('index', $router->getMethod());
         $this->assertEquals(array(), $router->getArgs());
 
         $ref_router_var_directory->setValue($router, '');
         $ref_router_var_class->setValue($router, '');
-        $ref_router_var_method->setValue($router, 'index');
         $ref_router_var_args->setValue($router, array());
         $ref_uri_var_uri_string->setValue($uri, '');
         $ref_uri_var_segments->setValue($uri, array());
