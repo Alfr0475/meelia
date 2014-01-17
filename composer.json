@@ -1,4 +1,16 @@
 {
+    "name": "Alfr0475/meelia",
+    "description": "simple framework",
+    "type": "project",
+    "homepage": "https://github.com/Alfr0475/meelia.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Seiki Koga",
+            "email": "alfr0475@gmail.com",
+            "homepage": "http://www.beard-bear.com/blog/"
+        }
+    ],
     "repositories": [
         {
             "type": "package",
@@ -27,5 +39,10 @@
         "mikey179/vfsStream": "v1.2.0",
         "mustangostang/spyc": "0.5.*",
         "phingofficial/phing": "dev-master"
+    },
+    "autoload": {
+        "classmap": {
+            "files": "meelia.php"
+        }
     }
 }
