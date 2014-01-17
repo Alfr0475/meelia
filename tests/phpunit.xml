@@ -11,15 +11,15 @@
   </php>
   <testsuite name="All">
     <directory suffix=".php">./case/core</directory>
-    <directory suffix=".php">./case/database</directory>
+    <!-- <directory suffix=".php">./case/database</directory> -->
     <directory suffix=".php">./case/logic</directory>
   </testsuite>
   <testsuite name="Core">
     <directory suffix=".php">./case/core</directory>
   </testsuite>
-  <testsuite name="Database">
-    <directory suffix=".php">./case/database</directory>
-  </testsuite>
+  <!-- <testsuite name="Database"> -->
+  <!--   <directory suffix=".php">./case/database</directory> -->
+  <!-- </testsuite> -->
   <testsuite name="Logic">
     <directory suffix=".php">./case/logic</directory>
   </testsuite>
