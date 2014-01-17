@@ -41,8 +41,8 @@
         "phingofficial/phing": "dev-master"
     },
     "autoload": {
-        "classmap": {
-            "files": "meelia.php"
-        }
+        "files": [
+            "meelia.php"
+        ]
     }
 }
