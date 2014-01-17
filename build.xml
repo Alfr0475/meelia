@@ -25,6 +25,7 @@
       <batchtest>
         <fileset dir="${basedir}/tests">
           <include name="**/*_test.php" />
+          <exclude name="**/database*_test.php" />
         </fileset>
       </batchtest>
       <formatter type="plain" usefile="false" />
