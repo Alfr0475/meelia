@@ -39,10 +39,5 @@
         "mikey179/vfsStream": "v1.2.0",
         "mustangostang/spyc": "0.5.*",
         "phingofficial/phing": "dev-master"
-    },
-    "autoload": {
-        "files": [
-            "meelia.php"
-        ]
     }
 }
