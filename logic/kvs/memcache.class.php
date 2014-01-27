@@ -88,7 +88,7 @@ class KvsMemcache implements KvsInterface
             );
 
             if (!$res) {
-                logMessage('log', 'error', sprintf(
+                meelia\core\logMessage('log', 'error', sprintf(
                     '[KVS memcache] unable connect to : %s:%s',
                     $server['host'],
                     $server['port']

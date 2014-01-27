@@ -56,7 +56,7 @@ class LogicRouter
      */
     public function setRouting()
     {
-        logMessage('log', 'debug', '[start] Router::setRouting');
+        meelia\core\logMessage('log', 'debug', '[start] Router::setRouting');
 
         //app/config/router.inc.phpの
         //デフォルト設定されたコントローラーを呼ぶ
@@ -72,7 +72,7 @@ class LogicRouter
             $this->recurrenceParseUri($uri->getSegmentsAll());
         }
 
-        logMessage('log', 'debug', '[end] Router::setRouting');
+        meelia\core\logMessage('log', 'debug', '[end] Router::setRouting');
     }
 
     /**

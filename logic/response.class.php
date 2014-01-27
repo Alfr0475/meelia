@@ -124,7 +124,7 @@ class LogicResponse
     public function outputHeader()
     {
         foreach($this->headers as $header){
-            logMessage('log', 'debug', sprintf('[output] Header:%s', $header[0]));
+            meelia\core\logMessage('log', 'debug', sprintf('[output] Header:%s', $header[0]));
             header($header[0], $header[1]);
         }
     }

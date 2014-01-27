@@ -73,11 +73,11 @@ class LogicKvs
                 // KVSのコネクションプールにサーバーを登録
                 $res = $this->configureServer();
                 if (!$res) {
-                    logMessage('log', 'error', '[KVS] Invalid configure.');
+                    meelia\core\logMessage('log', 'error', '[KVS] Invalid configure.');
                     showError('Invalid KVS configure');
                 }
 
-                logMessage('log', 'debug', '[KVS] connect KVS.');
+                meelia\core\logMessage('log', 'debug', '[KVS] connect KVS.');
             } else {
                 showError(array('Class does not exists.', $class_name));
             }
@@ -100,10 +100,10 @@ class LogicKvs
     {
         $res = $this->close();
         if (!$res) {
-            logMessage('log', 'error', '[KVS] Close faild.');
+            meelia\core\logMessage('log', 'error', '[KVS] Close faild.');
         }
 
-        logMessage('log', 'debug', '[KVS] Close KVS.');
+        meelia\core\logMessage('log', 'debug', '[KVS] Close KVS.');
     }
 
     /**
